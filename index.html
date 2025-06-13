@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plant Disease Classification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Plant Disease Classification Using Deep Learning</h1>
+    <p><strong>Authors:</strong> Bettaieb Selma, Ghali Ibrahim</p>
+    <p><strong>Supervisor:</strong> Dr. Emna FENDRI, Dr. Sahar DAMMAK</p>
+    <p><a href="https://github.com/Ibrahimghali/plant-disease-recognition/tree/Selma" target="_blank">GitHub Repository</a></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>General Introduction</h2>
+      <p>This project explores plant disease classification using deep learning, with transfer learning strategies evaluated through VGG16 and ResNet50 models on a small dataset.</p>
+    </section>
+
+    <section>
+      <h2>Dataset Overview</h2>
+      <ul>
+        <li>Source: Kaggle</li>
+        <li>Images: 1,530 (3 classes: Healthy, Powdery, Rust)</li>
+        <li>Pre-split into train/val/test</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Transfer Learning Experiments</h2>
+      <h3>VGG16 Strategies</h3>
+      <ul>
+        <li><strong>Strategy 1:</strong> Full training – accuracy: 96.67%</li>
+        <li><strong>Strategy 2:</strong> Partial freezing – accuracy: 98.00% ✅ Best</li>
+        <li><strong>Strategy 3:</strong> Fully frozen – accuracy: 87.33%</li>
+      </ul>
+      <p>Partial freezing provided the best tradeoff between overfitting and underfitting.</p>
+    </section>
+
+    <section>
+      <h2>Comparative Analysis: VGG16 vs ResNet50</h2>
+      <p><strong>VGG16:</strong> 98% accuracy – better for small datasets</p>
+      <p><strong>ResNet50:</strong> 62% accuracy – too complex for this case</p>
+    </section>
+
+    <section>
+      <h2>Data Augmentation</h2>
+      <p>Augmentation (rotations, zoom, shifts) improved accuracy by 2.67%, made training more stable, and reduced overfitting.</p>
+    </section>
+
+    <section>
+      <h2>Custom CNN: Pitfalls of Accuracy</h2>
+      <p>Despite 92% test accuracy, F1-scores were poor due to class imbalance. Highlights need to use confusion matrix, not just accuracy.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Plant Disease Classification Project</p>
+  </footer>
+</body>
+</html>
