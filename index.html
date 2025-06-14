@@ -1,63 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Plant Disease Classification</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Classification Using Deep Learning | Selma Bettayeb</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Plant Disease Classification Using Deep Learning</h1>
-    <p><strong>Authors:</strong> Bettaieb Selma, Ghali Ibrahim</p>
-    <p><strong>Supervisor:</strong> Dr. Emna FENDRI, Dr. Sahar DAMMAK</p>
-    <p><a href="https://github.com/Ibrahimghali/plant-disease-recognition/tree/Selma" target="_blank">GitHub Repository</a></p>
-  </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Plant Disease Classification</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#analysis">Analysis</a></li>
+                <li><a href="#conclusions">Conclusions</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <main>
-    <section>
-      <h2>General Introduction</h2>
-      <p>This project explores plant disease classification using deep learning, with transfer learning strategies evaluated through VGG16 and ResNet50 models on a small dataset.</p>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Plant Disease Classification Using Deep Learning</h1>
+                <p class="hero-subtitle">Advanced Transfer Learning Strategies for Agricultural Disease Detection</p>
+                <div class="hero-meta">
+                    <div class="author">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Selma Bettayeb</span>
+                    </div>
+                    <div class="date">
+                        <i class="fas fa-calendar"></i>
+                        <span>2025</span>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Best Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Disease Classes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1,530</span>
+                        <span class="stat-label">Images Analyzed</span>
+                    </div>
+                </div>
+                <a href="#methodology" class="cta-button">
+                    <span>Explore Research</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+            <div class="hero-visual">
+                <div class="plant-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section>
-      <h2>Dataset Overview</h2>
-      <ul>
-        <li>Source: Kaggle</li>
-        <li>Images: 1,530 (3 classes: Healthy, Powdery, Rust)</li>
-        <li>Pre-split into train/val/test</li>
-      </ul>
+    <!-- Project Overview -->
+    <section id="overview" class="section overview">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="overview-grid">
+                <article class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Objective</h3>
+                    <p>Develop an accurate deep learning model for plant disease classification using transfer learning strategies on a limited dataset.</p>
+                </article>
+                <article class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Dataset</h3>
+                    <p>1,530 Kaggle images across 3 classes: Healthy, Powdery, and Rust diseases with pre-split train/validation/test sets.</p>
+                </article>
+                <article class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Approach</h3>
+                    <p>Comparative analysis of VGG16 and ResNet50 architectures using multiple transfer learning strategies and data augmentation.</p>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <section>
-      <h2>Transfer Learning Experiments</h2>
-      <h3>VGG16 Strategies</h3>
-      <ul>
-        <li><strong>Strategy 1:</strong> Full training – accuracy: 96.67%</li>
-        <li><strong>Strategy 2:</strong> Partial freezing – accuracy: 98.00% ✅ Best</li>
-        <li><strong>Strategy 3:</strong> Fully frozen – accuracy: 87.33%</li>
-      </ul>
-      <p>Partial freezing provided the best tradeoff between overfitting and underfitting.</p>
+    <!-- Methodology -->
+    <section id="methodology" class="section methodology">
+        <div class="container">
+            <h2 class="section-title">Theoretical Methodology</h2>
+            
+            <article class="methodology-section">
+                <h3>Transfer Learning Strategies</h3>
+                <p class="methodology-intro">Three distinct transfer learning approaches were evaluated to determine optimal performance on small datasets:</p>
+                
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h4>Strategy 1: Full Training</h4>
+                            <span class="strategy-badge full-training">All Layers Trainable</span>
+                        </div>
+                        <div class="strategy-content">
+                            <p>All convolutional layers and classifier are fine-tuned on the target dataset.</p>
+                            <div class="strategy-pros-cons">
+                                <div class="pros">
+                                    <h5>Advantages</h5>
+                                    <ul>
+                                        <li>Maximum adaptability to new domain</li>
+                                        <li>Can learn task-specific features</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h5>Risks</h5>
+                                    <ul>
+                                        <li>Overfitting on small datasets</li>
+                                        <li>Loss of pre-trained knowledge</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="strategy-card best-strategy">
+                        <div class="strategy-header">
+                            <h4>Strategy 2: Partial Freezing</h4>
+                            <span class="strategy-badge partial-freeze">Optimal Balance</span>
+                        </div>
+                        <div class="strategy-content">
+                            <p>Early convolutional layers frozen, later layers and classifier trainable.</p>
+                            <div class="strategy-pros-cons">
+                                <div class="pros">
+                                    <h5>Advantages</h5>
+                                    <ul>
+                                        <li>Preserves low-level features</li>
+                                        <li>Prevents overfitting</li>
+                                        <li>Optimal for small datasets</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h5>Considerations</h5>
+                                    <ul>
+                                        <li>Requires careful layer selection</li>
+                                        <li>Domain-dependent effectiveness</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h4>Strategy 3: Full Freezing</h4>
+                            <span class="strategy-badge full-freeze">Feature Extractor</span>
+                        </div>
+                        <div class="strategy-content">
+                            <p>All convolutional layers frozen, only classifier trained.</p>
+                            <div class="strategy-pros-cons">
+                                <div class="pros">
+                                    <h5>Advantages</h5>
+                                    <ul>
+                                        <li>Fast training</li>
+                                        <li>Minimal overfitting risk</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h5>Limitations</h5>
+                                    <ul>
+                                        <li>Limited domain adaptation</li>
+                                        <li>May underfit complex tasks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="methodology-section">
+                <h3>Architecture Comparison</h3>
+                <div class="architecture-grid">
+                    <div class="arch-card">
+                        <h4>VGG16</h4>
+                        <div class="arch-specs">
+                            <div class="spec">
+                                <span class="spec-label">Depth:</span>
+                                <span class="spec-value">16 layers</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-label">Parameters:</span>
+                                <span class="spec-value">138M</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-label">Complexity:</span>
+                                <span class="spec-value">Moderate</span>
+                            </div>
+                        </div>
+                        <p>Simpler architecture with smaller receptive fields, well-suited for small datasets and less prone to overfitting.</p>
+                    </div>
+                    <div class="arch-card">
+                        <h4>ResNet50</h4>
+                        <div class="arch-specs">
+                            <div class="spec">
+                                <span class="spec-label">Depth:</span>
+                                <span class="spec-value">50 layers</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-label">Parameters:</span>
+                                <span class="spec-value">25.6M</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-label">Complexity:</span>
+                                <span class="spec-value">High</span>
+                            </div>
+                        </div>
+                        <p>Deep residual architecture with skip connections, requiring larger datasets for optimal performance.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
     </section>
 
-    <section>
-      <h2>Comparative Analysis: VGG16 vs ResNet50</h2>
-      <p><strong>VGG16:</strong> 98% accuracy – better for small datasets</p>
-      <p><strong>ResNet50:</strong> 62% accuracy – too complex for this case</p>
+    <!-- Results -->
+    <section id="results" class="section results">
+        <div class="container">
+            <h2 class="section-title">Experimental Results</h2>
+            
+            <article class="results-section">
+                <h3>VGG16 Transfer Learning Performance</h3>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h4>Strategy 1: Full Training</h4>
+                            <div class="accuracy-badge moderate">96.67%</div>
+                        </div>
+                        <div class="result-details">
+                            <p>Good performance but showing signs of overfitting due to excessive parameter updates.</p>
+                        </div>
+                    </div>
+                    <div class="result-card best-result">
+                        <div class="result-header">
+                            <h4>Strategy 2: Partial Freezing</h4>
+                            <div class="accuracy-badge best">98.00%</div>
+                        </div>
+                        <div class="result-details">
+                            <p><strong>Best Performance:</strong> Optimal balance between preserving pre-trained features and domain adaptation.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h4>Strategy 3: Full Freezing</h4>
+                            <div class="accuracy-badge poor">87.33%</div>
+                        </div>
+                        <div class="result-details">
+                            <p>Lowest accuracy due to insufficient adaptation to the plant disease domain.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="results-section">
+                <h3>Architecture Comparison</h3>
+                <div class="comparison-container">
+                    <div class="comparison-card winner">
+                        <div class="comparison-header">
+                            <h4>VGG16</h4>
+                            <div class="winner-badge">Winner</div>
+                        </div>
+                        <div class="comparison-stats">
+                            <div class="stat-large">98%</div>
+                            <div class="stat-label">Test Accuracy</div>
+                        </div>
+                        <div class="comparison-reasons">
+                            <h5>Why VGG16 Excelled:</h5>
+                            <ul>
+                                <li>Simpler architecture prevents overfitting</li>
+                                <li>Better suited for small datasets</li>
+                                <li>Effective feature extraction for plant images</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <h4>ResNet50</h4>
+                        </div>
+                        <div class="comparison-stats">
+                            <div class="stat-large">62%</div>
+                            <div class="stat-label">Test Accuracy</div>
+                        </div>
+                        <div class="comparison-reasons">
+                            <h5>Performance Issues:</h5>
+                            <ul>
+                                <li>Too complex for limited data</li>
+                                <li>Requires larger datasets for convergence</li>
+                                <li>Skip connections less beneficial here</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="results-section">
+                <h3>Data Augmentation Impact</h3>
+                <div class="augmentation-results">
+                    <div class="aug-card">
+                        <h4>Techniques Applied</h4>
+                        <div class="techniques-list">
+                            <span class="technique">Rotations</span>
+                            <span class="technique">Zoom</span>
+                            <span class="technique">Shifts</span>
+                            <span class="technique">Flips</span>
+                        </div>
+                    </div>
+                    <div class="aug-card">
+                        <h4>Performance Improvement</h4>
+                        <div class="improvement-stat">
+                            <span class="improvement-value">+2.67%</span>
+                            <span class="improvement-label">Accuracy Gain</span>
+                        </div>
+                    </div>
+                    <div class="aug-card">
+                        <h4>Additional Benefits</h4>
+                        <ul class="benefits-list">
+                            <li>Improved training stability</li>
+                            <li>Reduced overfitting</li>
+                            <li>Better generalization</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
     </section>
 
-    <section>
-      <h2>Data Augmentation</h2>
-      <p>Augmentation (rotations, zoom, shifts) improved accuracy by 2.67%, made training more stable, and reduced overfitting.</p>
+    <!-- Analysis -->
+    <section id="analysis" class="section analysis">
+        <div class="container">
+            <h2 class="section-title">Critical Analysis</h2>
+            
+            <article class="analysis-section">
+                <h3>The Accuracy Trap: Why Metrics Matter</h3>
+                <div class="warning-card">
+                    <div class="warning-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="warning-content">
+                        <h4>Custom CNN Case Study</h4>
+                        <p>Despite achieving <strong>92% accuracy</strong>, our custom CNN showed poor F1-scores due to class imbalance, highlighting the critical importance of comprehensive evaluation metrics.</p>
+                    </div>
+                </div>
+                
+                <div class="metrics-comparison">
+                    <div class="metric-card">
+                        <h4>Accuracy Alone</h4>
+                        <div class="metric-problems">
+                            <ul>
+                                <li>Misleading with imbalanced datasets</li>
+                                <li>Doesn't reveal class-specific performance</li>
+                                <li>Can hide overfitting to majority class</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="metric-card recommended">
+                        <h4>Comprehensive Evaluation</h4>
+                        <div class="metric-solutions">
+                            <ul>
+                                <li>Confusion Matrix Analysis</li>
+                                <li>Precision, Recall, F1-Score</li>
+                                <li>Per-class Performance Metrics</li>
+                                <li>ROC/AUC Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="analysis-section">
+                <h3>Small Dataset Challenges</h3>
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Overfitting Risk</h4>
+                        <p>Limited data leads to models memorizing training examples rather than learning generalizable features.</p>
+                        <div class="solution">
+                            <strong>Solution:</strong> Transfer learning with partial freezing
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Class Imbalance</h4>
+                        <p>Uneven distribution across disease classes affects model reliability and performance metrics.</p>
+                        <div class="solution">
+                            <strong>Solution:</strong> Confusion matrix analysis and balanced metrics
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h4>Limited Diversity</h4>
+                        <p>Small datasets may not capture the full variability of real-world conditions.</p>
+                        <div class="solution">
+                            <strong>Solution:</strong> Data augmentation and careful validation
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="analysis-section">
+                <h3>Transfer Learning vs. Custom CNNs</h3>
+                <div class="comparison-analysis">
+                    <div class="analysis-side">
+                        <h4>Transfer Learning Advantages</h4>
+                        <div class="advantage-list">
+                            <div class="advantage-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Pre-trained on millions of images</span>
+                            </div>
+                            <div class="advantage-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Robust low-level feature extraction</span>
+                            </div>
+                            <div class="advantage-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Faster convergence</span>
+                            </div>
+                            <div class="advantage-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Better performance with limited data</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analysis-side">
+                        <h4>Custom CNN Limitations</h4>
+                        <div class="limitation-list">
+                            <div class="limitation-item">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Requires large datasets for training</span>
+                            </div>
+                            <div class="limitation-item">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Higher computational requirements</span>
+                            </div>
+                            <div class="limitation-item">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Prone to overfitting on small datasets</span>
+                            </div>
+                            <div class="limitation-item">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Less reliable feature learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
     </section>
 
-    <section>
-      <h2>Custom CNN: Pitfalls of Accuracy</h2>
-      <p>Despite 92% test accuracy, F1-scores were poor due to class imbalance. Highlights need to use confusion matrix, not just accuracy.</p>
-    </section>
-  </main>
+    <!-- Conclusions -->
+    <section id="conclusions" class="section conclusions">
+        <div class="container">
+            <h2 class="section-title">Key Findings & Recommendations</h2>
+            
+            <article class="conclusions-content">
+                <div class="key-findings">
+                    <h3>Critical Insights</h3>
+                    <div class="findings-grid">
+                        <div class="finding-card">
+                            <div class="finding-number">1</div>
+                            <div class="finding-content">
+                                <h4>Partial Freezing Optimal Strategy</h4>
+                                <p>For small datasets, partial freezing of pre-trained models provides the best balance between feature preservation and domain adaptation.</p>
+                            </div>
+                        </div>
+                        <div class="finding-card">
+                            <div class="finding-number">2</div>
+                            <div class="finding-content">
+                                <h4>Architecture Complexity Matters</h4>
+                                <p>Simpler architectures like VGG16 outperform complex models like ResNet50 on limited datasets due to reduced overfitting risk.</p>
+                            </div>
+                        </div>
+                        <div class="finding-card">
+                            <div class="finding-number">3</div>
+                            <div class="finding-content">
+                                <h4>Comprehensive Evaluation Essential</h4>
+                                <p>Accuracy alone is insufficient; confusion matrices and per-class metrics are crucial for reliable model assessment.</p>
+                            </div>
+                        </div>
+                        <div class="finding-card">
+                            <div class="finding-number">4</div>
+                            <div class="finding-content">
+                                <h4>Data Augmentation Benefits</h4>
+                                <p>Strategic augmentation improves performance and training stability while reducing overfitting risks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>&copy; 2025 Plant Disease Classification Project</p>
-  </footer>
+                <div class="recommendations">
+                    <h3>Best Practices for Small Dataset Classification</h3>
+                    <div class="recommendations-list">
+                        <div class="recommendation">
+                            <div class="rec-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="rec-content">
+                                <h4>Choose Transfer Learning</h4>
+                                <p>Always prefer pre-trained models over custom CNNs for small datasets. Use partial freezing strategy for optimal results.</p>
+                            </div>
+                        </div>
+                        <div class="recommendation">
+                            <div class="rec-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="rec-content">
+                                <h4>Implement Comprehensive Metrics</h4>
+                                <p>Use confusion matrices, precision, recall, and F1-scores alongside accuracy. Pay special attention to class imbalance.</p>
+                            </div>
+                        </div>
+                        <div class="recommendation">
+                            <div class="rec-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="rec-content">
+                                <h4>Select Appropriate Architecture</h4>
+                                <p>For small datasets, favor simpler architectures (VGG-style) over very deep networks (ResNet-style).</p>
+                            </div>
+                        </div>
+                        <div class="recommendation">
+                            <div class="rec-icon">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <div class="rec-content">
+                                <h4>Apply Data Augmentation</h4>
+                                <p>Use rotation, zoom, and shift augmentations to increase dataset diversity and improve generalization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Plant Disease Classification Research</h3>
+                    <p>Advanced deep learning approaches for agricultural disease detection using transfer learning strategies.</p>
+                </div>
+                <div class="footer-author">
+                    <div class="author-info">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>
+                            <h4>Selma Bettayeb</h4>
+                            <p>Research Author & Developer</p>
+                        </div>
+                    </div>
+                    <div class="footer-year">2025</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Selma Bettayeb. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .section, .hero-content, .hero-visual').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active class to navigation on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
