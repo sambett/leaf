@@ -54,17 +54,6 @@ This research explores the effectiveness of different transfer learning strategi
 
 4. **Data Augmentation Benefits**: Strategic augmentation improves performance by 2.67% and enhances training stability.
 
-## 📁 Project Structure
-
-```
-leaf/
-├── index.html                          # Main research presentation website
-├── style.css                          # Professional styling and animations
-├── README.md                           # This documentation
-├── 8e245fec-...pdf                    # Complete research paper with graphs
-└── assets/
-    └── images/                        # Project assets and visualizations
-```
 
 ## 🌐 Interactive Demo
 
@@ -78,14 +67,14 @@ leaf/
 ### Access the Demo
 
 1. **Live Classifier**: Test the model with your images
-   - URL: `sambett-leaf-classification` (Update with actual URL)
+   - URL:(https://github.com/sambett/leaf_classification).
    
 2. **Video Demonstration**: Watch the classification system in action
    - YouTube: Complete walkthrough and real-time predictions
    - (https://www.youtube.com/watch?v=bDs9qIJ9UgA).
    
 3. **Source Code**: Access the complete implementation
-   - GitHub: [Plant Disease Recognition Repository](https://github.com/sambett/leaf_classification)
+   - GitHub: [Plant Disease Recognition Repository](https://github.com/sambett/leaf_classification.git)
 
 ## 📖 Research Paper
 
@@ -96,25 +85,7 @@ The complete academic paper includes:
 - Literature review and related work
 - Future research directions
 
-**Download**: [Full Research Paper PDF](https://github.com/sambett/leaf/blob/main/Plant_Disease_Classification_Using_Deep_Learning.pdf)
-
-## 🛠️ Technical Implementation
-
-### Model Architecture (VGG16 - Best Performing)
-
-```python
-# Partial Freezing Strategy (Optimal)
-base_model = VGG16(weights='imagenet', include_top=False)
-
-# Freeze early layers (feature extraction)
-for layer in base_model.layers[:-4]:
-    layer.trainable = False
-
-# Fine-tune later layers + classifier
-for layer in base_model.layers[-4:]:
-    layer.trainable = True
-```
-
+**Download**: [Full Research Paper PDF](Plant_Disease_Classification_Using_Deep_Learning_strategy _analysis.pdf)
 
 
 ### For Small Dataset Classification:
@@ -131,27 +102,14 @@ for layer in base_model.layers[-4:]:
 - Research Focus: Deep Learning for Agricultural Applications
 - Specialization: Transfer Learning strategies and small datasets challenges
 - Institution: Fss faculty of science sfax
-- Contact: sbettaie56@gmail.coù
+- Contact: sbettaie56@gmail.com
 
 ## 🤝 Collaborators
 
 - **Dr. Emna FENDRI**: Research Supervisor
 - **Dr. Sahar DAMMAK**: Research Supervisor
 
-## 📄 Citation
 
-If you use this work in your research, please cite:
-
-```bibtex
-@article{bettayeb2025plant,
-  title={Plant Disease Classification Using Deep Learning: Advanced Transfer Learning Strategies},
-  author={Bettayeb Selma},
-  supervisor={Fendri, Emna and Dammak, Sahar},
-  year={2025},
-  journal={Agricultural AI Research},
-  note={Available at: https://github.com/Ibrahimghali/plant-disease-recognition/tree/Selma}
-}
-```
 
 ## 📜 License
 
