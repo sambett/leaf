@@ -16,6 +16,7 @@ This research explores the effectiveness of different transfer learning strategi
 ## 📊 Dataset
 
 - **Source**: Kaggle Plant Disease Dataset
+- https://www.youtube.com/watch?v=bDs9qIJ9UgA
 - **Total Images**: 1,530
 - **Classes**: 3 (Healthy, Powdery, Rust)
 - **Split**: Pre-divided into train/validation/test sets
