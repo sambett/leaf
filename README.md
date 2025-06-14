@@ -77,14 +77,14 @@ leaf/
 
 ### Access the Demo
 
-1. **Live Classifier**: Test the model with your own images
+1. **Live Classifier**: Test the model with your images
    - URL: `sambett-leaf-classification` (Update with actual URL)
    
 2. **Video Demonstration**: Watch the classification system in action
    - YouTube: Complete walkthrough and real-time predictions
    
 3. **Source Code**: Access the complete implementation
-   - GitHub: [Plant Disease Recognition Repository](https://github.com/Ibrahimghali/plant-disease-recognition/tree/Selma)
+   - GitHub: [Plant Disease Recognition Repository](https://github.com/sambett/leaf_classification)
 
 ## 📖 Research Paper
 
@@ -95,7 +95,7 @@ The complete academic paper includes:
 - Literature review and related work
 - Future research directions
 
-**Download**: [Full Research Paper PDF](8e245fec-a02e-4501-b5ec-4caa54410db0_Plant_Disease_Classification_Using_Deep_Learning.pdf)
+**Download**: [Full Research Paper PDF](https://github.com/sambett/leaf/blob/main/Plant_Disease_Classification_Using_Deep_Learning.pdf)
 
 ## 🛠️ Technical Implementation
 
@@ -114,48 +114,7 @@ for layer in base_model.layers[-4:]:
     layer.trainable = True
 ```
 
-### Data Augmentation Pipeline
 
-- **Rotations**: ±20 degrees
-- **Zoom**: 0.8-1.2x
-- **Shifts**: ±20% horizontal/vertical
-- **Flips**: Horizontal mirroring
-
-### Training Configuration
-
-- **Optimizer**: Adam (lr=0.0001)
-- **Loss Function**: Categorical Crossentropy
-- **Batch Size**: 32
-- **Epochs**: 50 with early stopping
-- **Validation**: 20% of training data
-
-## 📈 Results Summary
-
-### VGG16 Performance (All Strategies)
-- **Strategy 1** (Full Training): 96.67%
-- **Strategy 2** (Partial Freezing): **98.00%** ⭐
-- **Strategy 3** (Full Freezing): 87.33%
-
-### Data Augmentation Impact
-- **Baseline**: 95.33%
-- **With Augmentation**: **98.00%**
-- **Improvement**: +2.67%
-
-## 🔬 Critical Analysis
-
-### The Accuracy Trap
-Despite achieving 92% accuracy, our custom CNN showed poor F1-scores due to class imbalance, highlighting the importance of:
-- Confusion matrix analysis
-- Precision, recall, and F1-scores
-- Per-class performance metrics
-- ROC/AUC analysis
-
-### Small Dataset Challenges
-1. **Overfitting Risk**: Models memorize rather than generalize
-2. **Class Imbalance**: Uneven distribution affects reliability
-3. **Limited Diversity**: May not capture real-world variability
-
-## 🏆 Best Practices & Recommendations
 
 ### For Small Dataset Classification:
 
@@ -169,13 +128,12 @@ Despite achieving 92% accuracy, our custom CNN showed poor F1-scores due to clas
 
 **Selma Bettayeb**
 - Research Focus: Deep Learning for Agricultural Applications
-- Specialization: Transfer Learning and Computer Vision
-- Institution: [Your Institution]
-- Contact: [Your Email]
+- Specialization: Transfer Learning strategies and small datasets challenges
+- Institution: Fss faculty of science sfax
+- Contact: sbettaie56@gmail.coù
 
 ## 🤝 Collaborators
 
-- **Ibrahim Ghali**: Co-developer and implementation
 - **Dr. Emna FENDRI**: Research Supervisor
 - **Dr. Sahar DAMMAK**: Research Supervisor
 
@@ -186,7 +144,7 @@ If you use this work in your research, please cite:
 ```bibtex
 @article{bettayeb2025plant,
   title={Plant Disease Classification Using Deep Learning: Advanced Transfer Learning Strategies},
-  author={Bettayeb, Selma and Ghali, Ibrahim},
+  author={Bettayeb Selma},
   supervisor={Fendri, Emna and Dammak, Sahar},
   year={2025},
   journal={Agricultural AI Research},
