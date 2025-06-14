@@ -82,6 +82,7 @@ leaf/
    
 2. **Video Demonstration**: Watch the classification system in action
    - YouTube: Complete walkthrough and real-time predictions
+   - (https://www.youtube.com/watch?v=bDs9qIJ9UgA).
    
 3. **Source Code**: Access the complete implementation
    - GitHub: [Plant Disease Recognition Repository](https://github.com/sambett/leaf_classification)
