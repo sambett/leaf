@@ -16,8 +16,7 @@ This research explores the effectiveness of different transfer learning strategi
 ## 📊 Dataset
 
 - **Source**: Kaggle Plant Disease Dataset
-- https://www.kaggle.com/datasets/rashikrahmanpritom/plant-
-disease-recognition-dataset
+- https://www.kaggle.com/datasets/rashikrahmanpritom/plant-disease-recognition-dataset
 - **Total Images**: 1,530
 - **Classes**: 3 (Healthy, Powdery, Rust)
 - **Split**: Pre-divided into train/validation/test sets
